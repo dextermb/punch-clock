@@ -42,7 +42,7 @@ export default function Page () {
 
   return (
     <>
-      <main className="w-full max-w-screen-sm p-8 pb-24">
+      <main className="mx-0 w-full max-w-screen-sm p-8 pb-24 sm:mx-auto">
         <div>
           <ul>
             {mounted && (
@@ -74,13 +74,18 @@ export default function Page () {
       </main>
       {mounted && (
         <div className="fixed bottom-0 left-0 w-full bg-gradient-to-b from-transparent to-white to-90% p-8">
-          <div className="flex justify-end">
+          <div className="flex justify-end sm:justify-center">
             <button
-              className="animate-fade-grow rounded-full bg-white p-2 shadow ring-1 ring-primary/50"
+              className="animate-fade-grow rounded-full bg-white p-2 shadow ring-1 ring-primary/50 sm:w-64 sm:rounded-lg"
               type="button"
               onClick={push}
             >
-              {lastAction === 'check-out' ? <CalendarTimer /> : <CalendarCheck />}
+              <span className="flex items-center justify-center gap-2">
+                {lastAction === 'check-out' ? <CalendarTimer /> : <CalendarCheck />}
+                <span className="hidden sm:block">
+                  {lastAction === 'check-out' ? 'Check in' : 'Check out'}
+                </span>
+              </span>
             </button>
           </div>
         </div>

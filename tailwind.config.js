@@ -41,6 +41,7 @@ module.exports = {
         'fade-in': 'fade-in 150ms var(--animation-delay, 0ms) linear forwards',
         'slide-up': 'slide-up 150ms var(--animation-delay, 0ms) linear forwards',
         'fade-up': 'fade-in 150ms var(--animation-delay, 0ms) linear forwards, slide-up 150ms var(--animation-delay, 0ms) linear forwards',
+        'fade-down': 'fade-in 150ms var(--animation-delay, 0ms) linear forwards, slide-down 150ms var(--animation-delay, 0ms) linear forwards',
         'fade-grow': 'fade-in 150ms var(--animation-delay, 0ms) linear forwards, grow 150ms var(--animation-delay, 0ms) linear forwards',
       },
       keyframes: {
@@ -50,6 +51,10 @@ module.exports = {
         },
         'slide-up': {
           '0%': { transform: 'translateY(10%)' },
+          '100%': { transform: 'translateY(0)' }
+        },
+        'slide-down': {
+          '0%': { transform: 'translateY(-10%)' },
           '100%': { transform: 'translateY(0)' }
         },
         'grow': {

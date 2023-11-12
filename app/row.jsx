@@ -6,7 +6,7 @@ import CalendarCross from './calendar-cross.jsx';
 export default function Row ({ row, index, onRemove }) {
   return (
     <li style={{ '--animation-delay': `${index * 100}ms` }}>
-      <div className="flex animate-fade-up items-center gap-4 opacity-0">
+      <div className="flex animate-fade-down items-center gap-4 opacity-0">
         <p className="whitespace-nowrap">{row.value.action}</p>
         {row.value.diff && (
           <p className="ml-auto truncate text-primary-muted">
@@ -19,10 +19,7 @@ export default function Row ({ row, index, onRemove }) {
         <button
           type="button"
           disabled={index !== 0}
-          className={clsx(
-            'shrink-0',
-            index !== 0 ? 'text-primary-muted opacity-25' : 'text-danger',
-          )}
+          className="shrink-0 text-danger disabled:text-primary-muted disabled:opacity-25"
           onClick={() => onRemove(row.id)}
         >
           <CalendarCross />
